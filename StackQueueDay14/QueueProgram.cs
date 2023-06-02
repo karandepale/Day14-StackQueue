@@ -86,6 +86,11 @@ namespace StackQueueDay14
             Console.WriteLine("Dequeued: " + dequeuedElement); // Output: Dequeued: 56
 
             queue.Display(); // Output: 30 70
+
+            int dequeuedElement2 = queue.Dequeue();
+            Console.WriteLine("Dequeued: " + dequeuedElement2); // Output: Dequeued: 30
+
+            queue.Display(); // Output: 70
         }
     }
 }
