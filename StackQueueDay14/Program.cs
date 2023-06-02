@@ -4,7 +4,7 @@ namespace StackQueueDay14
 {
     public class Stack
     {
-        private Node top; 
+        private Node top;
 
         private class Node
         {
@@ -31,12 +31,23 @@ namespace StackQueueDay14
             if (top == null)
             {
                 Console.WriteLine("Stack is empty");
-                return -1; 
+                return -1;
             }
 
             int data = top.Data;
             top = top.Next;
             return data;
+        }
+
+        public int Peek()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack is empty");
+                return -1;
+            }
+
+            return top.Data;
         }
 
         public void Display()
@@ -55,6 +66,14 @@ namespace StackQueueDay14
             }
             Console.WriteLine();
         }
+
+        public void PopAll()
+        {
+            while (top != null)
+            {
+                Console.WriteLine("Popped: " + Pop());
+            }
+        }
     }
 
     internal class Program
@@ -69,6 +88,16 @@ namespace StackQueueDay14
             stack.Push(70);
 
             stack.Display(); // Output: 70 30 56
+
+            Console.WriteLine("Peek: " + stack.Peek()); // Output: Peek: 70
+
+            stack.PopAll();
+            // Output: 
+            // Popped: 70
+            // Popped: 30
+            // Popped: 56
+
+            stack.Display(); // Output: Stack is empty
         }
     }
 }
